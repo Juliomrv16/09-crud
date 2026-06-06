@@ -5,7 +5,10 @@ const state = {
     users: [],
 }
 
+
 const loadNextPage = async() => {
+    //*Funcion que nos sirve para pedir la informacion de
+    //*nuestra base de datos
     await loadUsersByPage( state.currentPage + 1);
     
 };
