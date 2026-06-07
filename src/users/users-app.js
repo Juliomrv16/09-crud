@@ -10,4 +10,5 @@ export const UsersApp = async( element ) => {
     element.innerHTML = 'Loading...'
     await usersStore.loadNextPage();
 
+    console.log( usersStore.getUsers() );
 };

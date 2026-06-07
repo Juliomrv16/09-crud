@@ -9,8 +9,18 @@ const state = {
 const loadNextPage = async() => {
     //*Funcion que nos sirve para pedir la informacion de
     //*nuestra base de datos
-    await loadUsersByPage( state.currentPage + 1);
-    
+    //await loadUsersByPage( state.currentPage + 1);
+    //*Estamos actualizando nuestro arreglo "users" igresando
+    //*los datos que obtenemos de la funcion "loadUsersByPage"
+    const users = await loadUsersByPage( state.currentPage + 1);
+
+    //*Despues estamos diciendo que si no obtenemos nada se
+    //*detenga la ejecución
+    if ( users.length === 0 ) return;
+
+    //*Por ultimo actualizamos nuestro objeto state:
+    state.currentPage +=1;
+    state.users = users;
 };
 
 const loadPreviousPage = () => {
@@ -31,6 +41,6 @@ export default {
     onUserChanged,
     reloadPage,
 
-    getUser: () => [...state.users],
+    getUsers: () => [...state.users],
     getCurrentPage: () => state.currentPage,
 }
