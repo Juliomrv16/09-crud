@@ -41,6 +41,15 @@ export default {
     onUserChanged,
     reloadPage,
 
+    /**
+     *  Obtiene una copia de la lista actual de usuarios
+     * @returns {User[]}
+     */
     getUsers: () => [...state.users],
+
+    /**
+     *  Obtiene la pagina en donde se encuentra (1 al 5)
+     * @returns {Number}
+     */
     getCurrentPage: () => state.currentPage,
 }
