@@ -1,7 +1,8 @@
 import { User } from "../models/user";
 
 /**
- *
+ *  Adaptacion de la base de datos al front para evitar
+ *  problemas si es que la base de datos tiene algun cambio
  * @param {Like<User>} localhostUser 
  * @returns {User}
  */

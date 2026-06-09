@@ -5,7 +5,13 @@ const state = {
     users: [],
 }
 
-
+/**
+ *  Carga la siguiente página de usuarios y actualiza el estado
+ *  global.
+ *  @async
+ *  @function loadNextPage
+ *  @returns {Promise<void>}
+ */
 const loadNextPage = async() => {
     //*Funcion que nos sirve para pedir la informacion de
     //*nuestra base de datos
@@ -14,17 +20,22 @@ const loadNextPage = async() => {
     //*los datos que obtenemos de la funcion "loadUsersByPage"
     const users = await loadUsersByPage( state.currentPage + 1);
 
-    //*Despues estamos diciendo que si no obtenemos nada se
-    //*detenga la ejecución
-    if ( users.length === 0 ) return;
+    //*Debido a las actualizaciones tenemos que implementar la
+    //*Siguiente implemenetacón
+    if ( state.currentPage >= 5 ) return;
 
     //*Por ultimo actualizamos nuestro objeto state:
     state.currentPage +=1;
     state.users = users;
 };
 
-const loadPreviousPage = () => {
-    throw new Error("No implementado");
+
+
+const loadPreviousPage = async() => {
+    if ( state.currentPage <= 1 ) return;
+    const users = await loadUsersByPage( state.currentPage - 1);
+    state.currentPage -=1;
+    state.users = users;
 };
 
 const onUserChanged = () => {
