@@ -2,8 +2,8 @@ import './render-add-button.css';
 
 
 /**
- * 
- * @param {HTMLDivElement} element
+ *  Boton para agregar usuarios
+ *  @param {HTMLDivElement} element
  */
 export const renderAddButton = ( element ) => {
     const fabButton = document.createElement('button');
