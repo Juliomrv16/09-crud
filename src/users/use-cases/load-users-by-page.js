@@ -20,6 +20,21 @@ export const loadUsersByPage = async( page = 1 ) => {
     //*Devido a la actualizacion mas reciente de la base de
     //*datos ahora nuestra data esta dentre de un objeto. Por
     //*eso usamos "data.data"
-    const users = data.data.map( localhostUserToModel );
+    // const users = data.data.map( localhostUserToModel );
+    const users = data.map( localhostUserToModel );
     return users;
 };
+
+//!Debido a la difencia de versiones opte por escribir el 
+//!siguiente codigo, pero tuve que regresar a las versiones
+//!anteriores
+/**
+ *  Funcion para poder saber en que pagina estoy en la base de datos
+ */
+// export const pageActual = async( page = 1 ) => {
+//     const url =`${ import.meta.env.VITE_BASE_URL }/users?_page=${page}`;
+//     const res = await fetch(url);
+//     const data = await res.json();
+//     const pages = data.pages;
+//     return pages;
+// };

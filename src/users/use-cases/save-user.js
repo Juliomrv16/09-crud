@@ -1,8 +1,10 @@
 import { User } from "../models/user";
 
 /**
- * 
- * @param {Like<User>} userLike
+ *  Guarda un usuario en el almacenamiento local.
+ *  Si el usuario ya tiene un ID, lanza un error porque la actualización local no está implementada.
+ *  Si es un usuario nuevo, lo registra localmente.
+ *  @param {Like<User>} userLike
  */
 export const saveUser = async( userLike ) => {
 
@@ -20,8 +22,8 @@ export const saveUser = async( userLike ) => {
 
 
 /**
- * 
- * @param {Like<User>} user
+ *  Registra un nuevo usuario en el almacenamiento interno.
+ *  @param {Like<User>} user
  */
 const createUser = async( user ) => {
 

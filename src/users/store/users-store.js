@@ -19,10 +19,12 @@ const loadNextPage = async() => {
     //*Estamos actualizando nuestro arreglo "users" igresando
     //*los datos que obtenemos de la funcion "loadUsersByPage"
     const users = await loadUsersByPage( state.currentPage + 1);
-
+    // const pages = await pageActual(state.currentPage + 1);
     //*Debido a las actualizaciones tenemos que implementar la
     //*Siguiente implemenetacón
-    if ( state.currentPage >= 5 ) return;
+    // if ( state.currentPage === users. ) return;
+
+    if (users.length === 0) return;
 
     //*Por ultimo actualizamos nuestro objeto state:
     state.currentPage +=1;
