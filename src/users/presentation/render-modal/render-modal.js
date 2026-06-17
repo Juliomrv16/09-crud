@@ -67,15 +67,11 @@ export const renderModal = ( element, callback ) => {
                 continue;
             }
 
-            if ( key === 'isActive') {
-                userLike[key] = ( value === 'on' ) ? true : false;
-                continue;
-            }
-
             userLike[key] = value;
         }
 
-        console.log(userLike);
+        userLike['isActive'] = formData.get('isActive') ? true:false;
+
         await callback(userLike);
 
         hideModal();
