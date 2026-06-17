@@ -22,10 +22,10 @@ export const renderButtons = ( element ) => {
     prevButton.innerHTML = '< Prev';
 
     //*Se inicializa una constante "currentPageLabel" donde se
-    //*crea un "span" con un id "current-pag" y su contenido
+    //*crea un "span" con un id "current-page" y su contenido
     //*sera la pagina donde se encuntre nuestros usuarios
     const currentPageLabel = document.createElement('span');
-    currentPageLabel.id = 'current-pag';
+    currentPageLabel.id = 'current-page';
     currentPageLabel.innerHTML = usersStore.getCurrentPage();
 
     element.append( prevButton, currentPageLabel, nexButton);
